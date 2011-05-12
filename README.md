@@ -42,13 +42,14 @@ PHP Implementation of the UPS Shipping XML API
     if ($confirm_response['success']) {
       $accept_response = ups_shipping::accept($confirm_response);
       if ($accept_response['success']) {
-  
-           write shipping labels
+
+        // write shipping labels
         foreach ($accept_response['packages'] as $package) {
           $f = fopen('/tmp/labels/' . $package['tracking_number'] . '.gif', 'w');
           fwrite($f, base64_decode($package['image']));
           fclose($f);
         }
+
       } else {
         die('Accept Request Failed');
       }
