@@ -3,6 +3,8 @@
 PHP Implementation of the UPS Shipping XML API
 
 ## USAGE
+
+    require_once('ups_shipping.php');
   
     $opts = array(
       'ups_access_license_number' => UPS_ACCESS_LICENSE_NUMBER,
@@ -36,6 +38,7 @@ PHP Implementation of the UPS Shipping XML API
           'length' => 9
         )
       )
+    );
   
     $confirm_response = ups_shipping::confirm($opts);
   
