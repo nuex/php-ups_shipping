@@ -43,7 +43,7 @@ PHP Implementation of the UPS Shipping XML API
     $confirm_response = ups_shipping::confirm($opts);
   
     if ($confirm_response['success']) {
-      $accept_response = ups_shipping::accept($confirm_response);
+      $accept_response = ups_shipping::accept($confirm_response, $opts);
       if ($accept_response['success']) {
 
         // write shipping labels
